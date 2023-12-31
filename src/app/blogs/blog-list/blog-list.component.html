@@ -1,0 +1,191 @@
+<!-- <p>blog-list works!</p>
+<div class="row">
+    <table class="table col-5 m-4 w-50">
+        <tr>
+            <th>Title</th>
+            <th>Description</th>
+            <th>Published At</th>
+            <th></th>
+        </tr>
+        <tr *ngFor="let blog of BlogData">
+             <td>{{blog.title}}</td>
+             <td>{{blog.description}}</td>
+             <td>{{blog.published_at}}</td>
+             <td><button class="btn btn-outline-success" (click)="selectBlog(blog)">View Blog</button></td>
+        </tr>
+    </table>
+    <div class="col-5" *ngIf="selectedBlog">
+        <h4>{{selectedBlog.title}}</h4>
+        <hr>
+        <p>{{selectedBlog.description}}</p>
+        <p>{{selectedBlog.published_at}}</p>
+        <p>{{selectedBlog.no_of_likes}}</p>
+        <p>{{selectedBlog.no_of_comments}}</p>
+        <p>{{selectedBlog.image_url}}</p>
+        <p>{{selectedBlog.slug}}</p>
+        <p>{{selectedBlog.full_name}}</p>
+        <p>{{selectedBlog.category_name}}</p>
+        <p>{{selectedBlog.tags}}</p>
+    </div>
+</div> -->
+
+
+
+<!-- <div  class="row">
+    <div class="col-lg-6" *ngFor="let blog of BlogData"> -->
+      <!-- Blog post -->
+      <!-- <div class="card mb-4" >
+        <a href="#!">
+          <img
+            class="card-img-top"
+            src="https://dummyimage.com/700x350/dee2e6/6c757d.jpg"
+            alt="..."
+          />
+        </a>
+        <div class="card-body">
+          <div class="small text-muted">{{blog.published_at |  date:'longDate'}}</div>
+          <h2 class="card-title h4">{{blog.title}}</h2>
+          <p class="card-text">
+            {{blog.description}}
+          </p>
+          <a class="btn btn-custom" routerLink="/viewblog">Read more →</a>
+        </div>
+      </div>  
+    </div> 
+  </div> -->
+
+<!-- <div class="d-flex flex-column align-items-center">
+    <div class="row justify-content-center  w-75">
+        <input class="form-control w-25" type="search" placeholder="Search"> -->
+        <!-- <span class="input-group-text  col-6"><button type="submit" class="btn"><i class="fa-solid fa-magnifying-glass text-secondary-emphasis"></i></button></span>
+        <i class="fa-solid fa-circle-chevron-down  fa-3x col-6"></i>
+        
+    </div>
+    <div class="row justify-content-center m-0 flex-nowrap">
+      <button class="btn btn-warning col-3 m-1">For You</button>
+      <button class="btn btn-warning col-3 m-1">Trending</button>
+      <button class="btn btn-warning col-3 m-1">Fashion</button>
+      <button class="btn btn-warning col-3 m-1">Technology</button>
+    </div>
+    <div class="row justify-content-center w-75" >
+      <div class="col">
+        <h1>Title</h1>
+      <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Perferendis, enim? Asperiores doloribus deleniti ex autem alias modi ducimus tempore sunt molestias. Velit id quaerat tenetur rerum cum exercitationem aliquid hic perferendis, quia, omnis perspiciatis? Unde animi et vel corrupti totam?</p>
+     
+      <div class="row">
+        <i class="fa-solid fa-portrait col-1"></i>
+        <span class="col"></span>
+        <span class="col">Published at date</span>
+        <span class="col">Time</span>
+        <button class="btn btn-warning col-2">Read More</button>
+      </div>
+      <hr>
+      <div class="row justify-content-between">
+          <div class="col-6">
+            <i class="fa-solid fa-heart m-1 ">988</i>
+            <i class="fa-solid fa-comment m-1">200</i>
+            <i class="fa-solid fa-share m-1">10</i>
+          </div>
+          <div class="col"> <i class="fa-solid fa-bookmark"></i></div>
+      </div>
+      </div>
+    </div>
+
+    <div class="row justify-content-center w-75" >
+      <div class="col">
+        <h1>Title</h1>
+      <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Perferendis, enim? Asperiores doloribus deleniti ex autem alias modi ducimus tempore sunt molestias. Velit id quaerat tenetur rerum cum exercitationem aliquid hic perferendis, quia, omnis perspiciatis? Unde animi et vel corrupti totam?</p>
+      <div class="row">
+        <i class="fa-solid fa-portrait col-1"></i>
+        <span class="col">Author name</span>
+        <span class="col">Published at date</span>
+        <span class="col">Time</span>
+        <button class="btn btn-warning col-2">Read More</button>
+      </div>
+      <hr>
+      <div class="row justify-content-between">
+          <div class="col-6">
+            <i class="fa-solid fa-heart ">988</i>
+            <i class="fa-solid fa-comment">200</i>
+            <i class="fa-solid fa-share">10</i>
+          </div>
+          <div class="col"> <i class="fa-solid fa-bookmark"></i></div>
+      </div>
+      </div>
+    </div>
+    <div class="row justify-content-center w-75" >
+      <div class="col">
+        <h1>Title</h1>
+      <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Perferendis, enim? Asperiores doloribus deleniti ex autem alias modi ducimus tempore sunt molestias. Velit id quaerat tenetur rerum cum exercitationem aliquid hic perferendis, quia, omnis perspiciatis? Unde animi et vel corrupti totam?</p>
+      <div class="row">
+        <i class="fa-solid fa-portrait col-1"></i>
+        <span class="col">Author name</span>
+        <span class="col">Published at date</span>
+        <span class="col">Time</span>
+        <button class="btn btn-warning col-2">Read More</button>
+      </div>
+      <hr>
+      <div class="row justify-content-between">
+          <div class="col-6">
+            <i class="fa-solid fa-heart ">988</i>
+            <i class="fa-solid fa-comment">200</i>
+            <i class="fa-solid fa-share">10</i>
+          </div>
+          <div class="col"> <i class="fa-solid fa-bookmark"></i></div>
+      </div>
+      </div>
+    </div>
+    <div class="row justify-content-center w-75" >
+      <div class="col">
+        <h1>Title</h1>
+      <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Perferendis, enim? Asperiores doloribus deleniti ex autem alias modi ducimus tempore sunt molestias. Velit id quaerat tenetur rerum cum exercitationem aliquid hic perferendis, quia, omnis perspiciatis? Unde animi et vel corrupti totam?</p>
+      <div class="row">
+        <i class="fa-solid fa-portrait col-1"></i>
+        <span class="col">Author name</span>
+        <span class="col">Published at date</span>
+        <span class="col">Time</span>
+        <button class="btn btn-warning col-2">Read More</button>
+      </div>
+      <hr>
+      <div class="row justify-content-between">
+          <div class="col-6">
+            <i class="fa-solid fa-heart ">988</i>
+            <i class="fa-solid fa-comment">200</i>
+            <i class="fa-solid fa-share">10</i>
+          </div>
+          <div class="col"> <i class="fa-solid fa-bookmark"></i></div>
+      </div>
+      </div>
+    </div>
+  </div> -->
+
+<div class="row justify-content-center m-0 flex-nowrap">
+    <button class="btn btn-warning col-3 m-1">For You</button>
+    <button class="btn btn-warning col-3 m-1">Trending</button>
+    <button class="btn btn-warning col-3 m-1">Fashion</button>
+    <button class="btn btn-warning col-3 m-1">Technology</button>
+  </div>
+  <div class="row justify-content-center w-75" *ngFor="let blog of BlogData" >
+    <div class="col m-4 ">
+      <h1>{{blog.title}}</h1>
+    <p>{{blog.description}}</p>
+   
+    <div class="row">
+      <i class="fa-solid fa-portrait col-1"></i>
+      <span class="col">{{blog.full_name}}</span>
+      <span class="col">{{blog.published_at | date:"longDate"}}</span>
+     
+      <button class="btn btn-warning col-2">Read More</button>
+    </div>
+   
+    <div class="row justify-content-between">
+        <div class="col-6">
+          <i class="fa-solid fa-heart m-1 ">{{blog.no_of_likes}}</i>
+          <i class="fa-solid fa-comment m-1">{{blog.no_of_comments}}</i>
+          <!-- <i class="fa-solid fa-share m-1">10</i> -->
+        </div>
+        <div class="col"> <i class="fa-solid fa-bookmark"></i></div>
+    </div>
+    </div>
+    <hr>
+  </div>
