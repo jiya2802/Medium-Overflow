@@ -1,14 +1,31 @@
 import { Injectable } from '@angular/core';
 import { Blog } from '../shared/interfaces/blog.interface';
+import { Observable } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
+import { Category } from '../shared/interfaces/Category.interface';
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class BlogsService {
 
-  constructor() { }
+  constructor(private http:HttpClient) { }
 
-  getBlogData():Blog[]{
-    return [{"title":"Introduction to SQL","description":"Learn the basics of SQL.","published_at":"2023-11-11T06:20:39.647+00:00","no_of_likes":0,"no_of_comments":0,"image_url":"sql.jpg","slug":"introduction-to-sql","full_name":"John Doe","category_name":"Technology","tags":"Programming,Nature,Programming,Nature"},{"title":"Foo1","description":"Bar1","published_at":"2023-11-11T06:20:39.647+00:00","no_of_likes":0,"no_of_comments":0,"image_url":"image1.jpg","slug":"Foo12D420D09-9616-4099-861D-BA0595447C07","full_name":"Jane Smith","category_name":"Technology","tags":"Nature,Nature"},{"title":"Delicious Recipes","description":"Cooking your favorite dishes.","published_at":"2023-11-11T06:20:39.647+00:00","no_of_likes":0,"no_of_comments":0,"image_url":"food.jpg","slug":"delicious-recipes","full_name":"Alice Johnson","category_name":"Food","tags":"Cooking,Style,Cooking"},{"title":"Fashion Trends","description":"Stay updated with the latest trends.","published_at":"2023-11-11T06:20:39.647+00:00","no_of_likes":0,"no_of_comments":0,"image_url":"fashion.jpg","slug":"fashion-trends","full_name":"David Brown","category_name":"Fashion","tags":"Style,Style,Football"},{"title":"World Cup Fever","description":"Exciting moments in football.","published_at":"2023-11-11T06:20:39.647+00:00","no_of_likes":0,"no_of_comments":0,"image_url":"football.jpg","slug":"world-cup-fever","full_name":"Michael Wilson","category_name":"Sports","tags":"Football,Programming"},{"title":"The Wonders of Space","description":"Exploring the mysteries of the universe.","published_at":"2023-11-11T06:20:39.790+00:00","no_of_likes":0,"no_of_comments":0,"image_url":"space.jpg","slug":"wonders-of-space","full_name":"Sarah Green","category_name":"Science","tags":"Science Fiction,Fitness,Programming"},{"title":"Healthy Living Tips","description":"Achieve a healthier lifestyle.","published_at":"2023-11-11T06:20:39.790+00:00","no_of_likes":0,"no_of_comments":0,"image_url":"healthy.jpg","slug":"healthy-living-tips","full_name":"Mark Davis","category_name":"Health","tags":"Nature,Fitness,Rock Music"},{"title":"Rock Music Legends","description":"Profiles of iconic rock musicians.","published_at":"2023-11-11T06:20:39.790+00:00","no_of_likes":0,"no_of_comments":0,"image_url":"rock.jpg","slug":"rock-music-legends","full_name":"Emily Turner","category_name":"Music","tags":"Entrepreneurship,Cooking"},{"title":"Startup Success Stories","description":"Inspiring stories of business startups.","published_at":"2023-11-11T06:20:39.790+00:00","no_of_likes":0,"no_of_comments":0,"image_url":"startup.jpg","slug":"startup-success-stories","full_name":"William Lee","category_name":"Business","tags":"Style,Painting"},{"title":"Mastering the Art of Painting","description":"Tips for aspiring artists.","published_at":"2023-11-11T06:20:39.790+00:00","no_of_likes":0,"no_of_comments":0,"image_url":"painting.jpg","slug":"art-of-painting","full_name":"Sophia Hall","category_name":"Art","tags":"Science Fiction,Football"},{"title":"The Joy of Learning","description":"Explore the world of education.","published_at":"2023-11-11T06:20:39.850+00:00","no_of_likes":0,"no_of_comments":0,"image_url":"learning.jpg","slug":"joy-of-learning","full_name":"Eleanor Harris","category_name":"Education","tags":"Science Fiction,Rock Music"},{"title":"Historical Mysteries","description":"Uncovering the secrets of the past.","published_at":"2023-11-11T06:20:39.850+00:00","no_of_likes":0,"no_of_comments":0,"image_url":"history.jpg","slug":"historical-mysteries","full_name":"Richard Clark","category_name":"History","tags":"Fitness,Fitness"},{"title":"Gaming Adventures","description":"Gaming experiences and reviews.","published_at":"2023-11-11T06:20:39.850+00:00","no_of_likes":0,"no_of_comments":0,"image_url":"gaming.jpg","slug":"gaming-adventures","full_name":"Matthew Baker","category_name":"Gaming","tags":"Rock Music,Science Fiction"},{"title":"Wanderlust Chronicles","description":"Travel stories from around the world.","published_at":"2023-11-11T06:20:39.850+00:00","no_of_likes":0,"no_of_comments":0,"image_url":"travel.jpg","slug":"wanderlust-chronicles","full_name":"Olivia White","category_name":"Travel","tags":"Entrepreneurship"},{"title":"Through the Lens","description":"Photography tips and showcases.","published_at":"2023-11-11T06:20:39.850+00:00","no_of_likes":0,"no_of_comments":0,"image_url":"photography.jpg","slug":"through-the-lens","full_name":"Daniel Anderson","category_name":"Photography","tags":"Painting"},{"title":"Divine Blog","description":"Trip to Vrindavan City","published_at":"2023-12-18T05:56:10.680+00:00","no_of_likes":0,"no_of_comments":0,"image_url":"divine.jpg","slug":"Divine-Blog5C145C9E-DFAA-4268-8CBB-AEC36401D2D0","full_name":"John Doe","category_name":"Technology","tags":"Nature,Ancient History,Adventure,Divinity"}]
+  getBlogData():Observable<any>{
+    return this.http.get('http://localhost:8080/api/blogs')
   }
+
+  getCategories():Observable<Category[]>{
+    return this.http.get<Category[]>('http://localhost:8080/api/categories');
+  }
+
+  getBlogsByCategory(categoryId:number):Observable<Blog[]>{
+    return this.http.get<Blog[]>(`http://localhost:8080/api/blogs/category/${categoryId}`)
+  }
+
+  getSingleBlog(slug:string):Observable<Blog>{
+    return this.http.get<Blog>(`http://localhost:8080/api/blogs/${slug}`)
+  }
+
 }

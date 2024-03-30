@@ -5,16 +5,23 @@ import { AppComponent } from './app.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { BlogListComponent } from './blogs/blog-list/blog-list.component';
 import { SharedModule } from './shared/shared.module';
+import { BlogsModule } from './blogs/blogs.module';
+import { ViewBlogsComponent } from './view-blogs/view-blogs.component';
+import { HomeModule } from './home/home.module';
+import { AppRoutingModule } from './app-routing.module';
 
 @NgModule({
   declarations: [
     AppComponent,
-    BlogListComponent
+    ViewBlogsComponent,
   ],
   imports: [
     BrowserModule,
+    AppRoutingModule,
     NgbModule,
-    SharedModule
+    SharedModule,
+    BlogsModule,
+    HomeModule
   ],
   providers: [],
   bootstrap: [AppComponent]
